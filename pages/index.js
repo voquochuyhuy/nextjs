@@ -28,6 +28,10 @@ export default function Home({ allPostsData }) {
               {id}
               <br />
               {date}
+              <br />
+              <Link href={`posts/${id}`}>
+                <a>Go to {id}</a>
+              </Link>
             </li>
           ))}
         </ul>

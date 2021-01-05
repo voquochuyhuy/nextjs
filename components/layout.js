@@ -1,12 +1,31 @@
-import Head from 'next/head'
-import styles from './layout.module.css'
-import utilStyles from '../styles/utils.module.css'
-import Link from 'next/link'
-
-const name = 'Huy 1'
-export const siteTitle = 'Next.js Sample Website'
+import Head from "next/head";
+import styles from "./layout.module.css";
+import utilStyles from "../styles/utils.module.css";
+import Link from "next/link";
+import { useRouter } from "next/router";
+import { useDispatch, useSelector } from "react-redux";
+const name = "Nextjs";
+export const siteTitle = "Next.js Sample Website";
 
 export default function Layout({ children, home }) {
+  const router = useRouter();
+  const dispatch = useDispatch();
+  const count = useSelector((state) => state.count);
+  const increment = () =>
+    dispatch({
+      type: "INCREMENT",
+    });
+  const decrement = () =>
+    dispatch({
+      type: "DECREMENT",
+    });
+  const reset = () =>
+    dispatch({
+      type: "RESET",
+    });
+  const onClickBtn = () => {
+    router.push("/example");
+  };
   return (
     <div className={styles.container}>
       <Head>
@@ -33,6 +52,54 @@ export default function Layout({ children, home }) {
               alt={name}
             />
             <h1 className={utilStyles.heading2Xl}>{name}</h1>
+            <p1>Data redux :{count}</p1>
+            <div
+              style={{
+                width: "800px",
+                display: "flex",
+                justifyContent: "space-between",
+                margin: "20px 0 20px 0",
+              }}
+            >
+              <button
+                style={{
+                  background: "red",
+                  borderRadius: " 8px",
+                  color: "white",
+                  width: "150px",
+                  height : "80px"
+                }}
+                onClick={increment}
+              >
+                Increment
+              </button>
+              <button
+                style={{
+                  background: "green",
+                  borderRadius: " 8px",
+                  color: "white",
+                  width: "150px",
+                  height : "80px"
+                }}
+                onClick={decrement}
+              >
+                Decrement
+              </button>
+              <button
+                style={{
+                  background: "gray",
+                  borderRadius: " 8px",
+                  color: "white",
+                  width: "150px",
+                  height : "80px"
+                }}
+                onClick={reset}
+              >
+                Reset
+              </button>
+            </div>
+
+            <button onClick={onClickBtn}>Go another route</button>
           </>
         ) : (
           <>
@@ -62,5 +129,5 @@ export default function Layout({ children, home }) {
         </div>
       )}
     </div>
-  )
+  );
 }
