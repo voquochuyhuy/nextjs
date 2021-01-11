@@ -102,8 +102,8 @@ export default function Layout({ children, home }) {
               </button>
             </div>
 
-            <button onClick={onClickBtn}>Go another route</button>
-            <button style={{marginTop:"16px"}} onClick={onClickBtnErr}>Go error rote</button>
+            <button className={styles.button} onClick={onClickBtn}><span>Go another route</span></button>
+            <button className={styles.button} style={{marginTop:"16px"}} onClick={onClickBtnErr}><span>Go error route</span></button>
           </>
         ) : (
           <>
