@@ -13,6 +13,7 @@ export async function getStaticProps() {
   }
 }
 export default function Home({ allPostsData }) {
+  console.log(2-"nbnbn","llklkl")
   return (
     <Layout home>
       {/* Keep the existing code here */}

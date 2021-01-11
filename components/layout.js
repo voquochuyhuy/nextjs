@@ -26,6 +26,9 @@ export default function Layout({ children, home }) {
   const onClickBtn = () => {
     router.push("/example");
   };
+  const onClickBtnErr = ()=>{
+    router.push("/aNic");
+  }
   return (
     <div className={styles.container}>
       <Head>
@@ -100,6 +103,7 @@ export default function Layout({ children, home }) {
             </div>
 
             <button onClick={onClickBtn}>Go another route</button>
+            <button style={{marginTop:"16px"}} onClick={onClickBtnErr}>Go error rote</button>
           </>
         ) : (
           <>
